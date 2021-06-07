@@ -63,31 +63,31 @@ crossorigin="anonymous">
          <form action="#"  th:action="@{/demandes/UpdateDemande/{id}(id=${demande.id})}" 
                      th:object="${demande}"method="post">
 				<fieldset class="form-group">
-					<label>Nom </label> <input type="text"
-						th:field="${demande.nom}" class="form-control"
-						name="nom" required="required">
+					<label>Nom </label> <p type="text"
+						th:text="${demande.nom}" class="form-control"
+						name="nom" required="required"></p>
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>Prenom</label> <input type="text"
-						th:field="${demande.prenom}" class="form-control"
-						name="prenom">
+					<label>Prenom</label> <p type="text"
+						th:text="${demande.prenom}" class="form-control"
+						name="prenom"> </p>
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>Email</label> <input type="text"
-						th:field="${demande.email}" class="form-control"
-						name="email">
+					<label>Email</label> <p type="text"
+						th:text="${demande.email}" class="form-control"
+						name="email"></p>
 				</fieldset>
 				<fieldset class="form-group">
-					<label>telephone</label> <input type="text"
-						th:field="${demande.tel}" class="form-control"
-						name="tel">
+					<label>telephone</label> <p type="text"
+						th:text="${demande.tel}" class="form-control"
+						name="tel"></p>
 				</fieldset>
 				<fieldset class="form-group">
-					<label>prix</label> <input type="text"
-						th:field="${demande.prix}" class="form-control"
-						name="sexe">
+					<label>prix</label> <p type="text"
+						th:text="${demande.prix}" class="form-control"
+						name="sexe"></p>
 				</fieldset>
 				
 				
