@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.model.Demande;
+import com.ride.demande.Demande;
 import com.ride.User;
 import com.ride.UserRepository;
 import com.ride.voiture.Voiture;
@@ -84,11 +84,7 @@ public class AppController {
 		UserService.deleteUser(id);
 		return "redirect:/user-list";}
 	
-	@GetMapping("/ShowDemandeT")
-	public String showDemande(Model model) {
-		model.addAttribute("demande",new Demande());
-		return "list-demande";
-	}
+	
 	
 	@GetMapping("/newVoiture")
 	public String newVoiture(Model model) {

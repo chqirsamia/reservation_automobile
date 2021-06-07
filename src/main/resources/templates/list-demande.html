@@ -40,7 +40,7 @@ crossorigin="anonymous">
 
 <!-- Menu -->
 
-<c:import url="navbar-admin.jsp"/>
+<div th:replace="fragments/navbar-admin"></div>
 <div class="container py-5">
     <div class="row text-center mb-5">
         <div class="col-lg-7 mx-auto">
@@ -53,11 +53,11 @@ crossorigin="anonymous">
         <span class="align-baseline">
            <div class="container text-left">
 
-				<a href="<%=request.getContextPath()%>/ShowDemandeNF" class="btn btn-info">demandes non traitées</a>
+				<a  th:href="@{/demandes/ShowDemandeNT}" class="btn btn-info">demandes non traitées</a>
 			</div>
 			<div class="container text-right">
 
-				<a href="<%=request.getContextPath()%>/ShowDemandeF" class="btn btn-info">demandes traitées</a>
+				<a th:href="@{/demandes/ShowDemandeT}" class="btn btn-info">demandes traitées</a>
 			</div>
 		</span>
             <!-- List group-->
@@ -66,12 +66,13 @@ crossorigin="anonymous">
                 <li class="list-group-item">
 	                    <!-- Custom content-->
 	                    <div class="row mt-0 font-weight-bold mb-2 dislay-4">
-	                    	<div class="col-sm-6">
-	                    		<h5 class="text-center"><i class="fas fa-box-open"></i> Détails demande</h5>
-	                    	</div>
 	                    	
+	                    	
+	                    	<div class="col-sm-6">
+	                    		<h5 class="text-center"><i class="fas fa-box-open"></i> Details Commande</h5>
+	                    	</div>
 	                    	<div class="col-sm-3">
-	                    		<h5 class="text-center"><i class="fas fa-box-open"></i> En Savoir Plus</h5>
+	                    		<h5 class="text-center"><i class="fas fa-box-open"></i> Details Client</h5>
 	                    	</div>
 	                    	
 	                    	<div class="col-sm-3">
@@ -82,72 +83,55 @@ crossorigin="anonymous">
 	                    	
 	                    </div>
 	                </li>
-                <c:forEach items="${demandes}" var="d" >
-						<c:forEach var="user" items="${listUsers}">
-						<c:if test="${d.demande.id_client == user.id}">
-					
+               	<tr th:each="demande:${list}">
+						
                 	<li class="list-group-item">
 	                    <!-- Custom content-->
 	                    <div class="row mt-0 font-weight-bold mb-2 dislay-4">
 	                    	
 	                    	<div class="col-sm-6">
 	                    		<div class="row  border border-info rounded">
-	                    		<c:set var="totalDmd" value="${0}"/>
-	                    			<c:forEach items="${d.lds}" var="lc" varStatus="status">
-	                    				<div class="col">
-	                    					<h5> <c:out value="${lc.carton.libelle_carton}"/> </h5>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> Quantité : <c:out value="${lc.cd.nbr}"/></h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> Prix : <c:out value="${lc.carton.prix} Dhs"/></h6>
-	                    				</div>
-	                    				<c:set var="totalDmd" value="${totalDmd + lc.cd.nbr * lc.carton.prix}" />
-	                    			</c:forEach>
-	                    		</div>
-	                    	</div>
-	                    	<div class="col-sm-3">
-	                    		<div class="row  border border-info rounded">
 	                    		
 	                    			
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> numero demande : <c:out value="${d.demande.id}"/></h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> date de creation : <c:out value="${d.demande.date_creation}"/></h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> total : <c:out value="${totalDmd}"/>Dhs</h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> etat de commande: <c:out value="${d.demande.etat}" /></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> numero demande : <a th:text="${demande.id}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> date de creation : <a th:text="${demande.date_creation}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> prix :<a th:text="${demande.prix}" ></a>Dhs</h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> etat de commande: <a th:text="${demande.etat}" ></a></h6>
 	                    					
 	                    				
 	                    				
 	                    			
 	                    		</div>
 	                    		
+	                    	
+	                    	
+	                    	</div>
+	                    	<div class="col-sm-3">
 	                    		<div class="row  border border-info rounded">
 	                    		
 	                    			
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> nom : <c:out value="${user.nom}"/></h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> prenom : <c:out value="${user.prenom}"/> </h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> email : <c:out value="${user.email}"/></h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> numero de telephone: <c:out value="${user.tel}" /></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> nom : <a th:text="${demande.nom}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> prenom : <a th:text="${demande.prenom}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> email :<a th:text="${demande.email}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> numero de telephone: <a th:text="${demande.tel}" ></a></h6>
 	                    					
 	                    				
 	                    				
 	                    			
 	                    		</div>
-	                    	
-	                    	</div>
-	                    	
+	                    		</div>
 	                    	<div class="col-sm-3">
-	                    	<c:if test="${d.demande.etat == 'NF'}">
-							<td><a href="EditDemande?id=<c:out value='${d.demande.id}' />">marquer comme traitee</a></td>
-								</c:if>	
+	                    	<div th:if ="${demande.etat== 'NF'}">
+	                    	
+							<td><a th:href="@{demandes/EditDemande/{id}(id=${demande.id})}">marquer comme traitee</a></td>
+								</div>
 	                    	</div>
 	                    </div>
-	                    	</c:if>	
-							
+	                    
 							
 						
-					</c:forEach>
-	                    <%-- <div class="media align-items-lg-center flex-column flex-lg-row p-3">
-	                        <div class="media-body order-2 order-lg-1">
-	                            <h5 class="mt-0 font-weight-bold mb-2">Demande #<c:out value="${d.demande.id}"/> Date Création : <c:out value="${d.demande.date_creation}"/></h5>
-	                        </div>
-	                    </div> --%> <!-- End -->
+					</div>
+	                     <!-- End -->
 	                </li>
                 </c:forEach>
             </ul> <!-- End -->
