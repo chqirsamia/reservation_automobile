@@ -37,21 +37,23 @@ public class VoitureController {
 	public String insertNewVoiture(@Valid Voiture voiture, BindingResult result,Model model)
 	{VoitureService.addNewVoiture(voiture);
 	return "redirect:/voitures";}
+	
+	
 	@GetMapping(path="delete/{VoitureID}")
 	public String deleteVoiture(@PathVariable("VoitureID") Long id) {
 		VoitureService.deleteVoiture(id);
 		return "redirect:/voitures";}
+	
+	
 	@GetMapping (path="edit/{VoitureID}")
-	/*public void updateVoiture (@PathVariable Long VoitureID,@RequestParam(required=false) String pic,
-			@RequestParam(required=false) int nombre_places,@RequestParam(required=false)float prix) {
-		VoitureService.updateVoiture(VoitureID,pic,nombre_places,prix);*/
 	public String editVoiture(@PathVariable Long VoitureID,Model model) {
 		Voiture voiture=VoitureService.getVoiture(VoitureID);
 		
 		model.addAttribute("voiture",voiture);
 		return "voiture-form";
-	
 	}
+	
+	
 	@PostMapping (path="update/{VoitureID}")
 	public String updateVoiture (@PathVariable Long VoitureID,@RequestParam(required=false) String pic,
 			@RequestParam(required=false) int nombre_places,@RequestParam(required=false)float prix) {

@@ -44,7 +44,7 @@ crossorigin="anonymous">
 			<hr>
 			<div class="container text-left">
 
-				<a href="<%=request.getContextPath()%>/new" class="btn btn-info">ajouter un admin</a>
+				<a th:href="@{/user-list/newAdmin}" class="btn btn-info">ajouter un admin</a>
 			</div>
 			<br>
 			<table class="table table-bordered">
@@ -61,20 +61,21 @@ crossorigin="anonymous">
 				</thead>
 				<tbody>
 				
-					<c:forEach var="user" items="${listUser}">
-
-						<tr>
-							<td><c:out value="${user.nom}" /></td>
-							<td><c:out value="${user.prenom}" /></td>
-							<td><c:out value="${user.email}" /></td>
-							<td><c:out value="${user.tel}" /></td>
-							<td><c:out value="${user.sexe}" /></td>
+					
+						<tr th:each="user:${list}">
+					
+							<td th:utext="${user.nom}" ></td>
+							<td th:utext="${user.prenom}" /></td>
+							<td th:utext="${user.email}" /></td>
+							<td th:utext="${user.tel}" /></td>
+							<td th:utext="${user.sexe}" /></td>
 							
-							<td><a href="edit?id=<c:out value='${user.id}' />">Edit</a>
+							<td><a th:href="@{/editAdmin/{id}(id=${user.id})}">Edit</a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="delete?id=<c:out value='${user.id}' />">Delete</a></td>
+								th:href="@{/admins/delete/{id}(id=${user.id})}">Delete</a></td>
 						</tr>
-					</c:forEach>
+					
+								
 		
 				</tbody>
 
