@@ -14,7 +14,8 @@ import javax.transaction.Transactional;
 
 @Service
 public class VoitureService {
-private final VoitureRepository voitureRepository ;
+	@Autowired
+	private VoitureRepository voitureRepository ;
 @Autowired
 
 public VoitureService(VoitureRepository VoitureRepository) {

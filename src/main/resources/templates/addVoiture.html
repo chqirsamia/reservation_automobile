@@ -7,17 +7,20 @@
   
 <!--CODE CSS-->
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-crossorigin="anonymous">
-<!--Fichiers-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+		integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+		integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<!--Fichiers-->
+	<link href="/css/style.css" rel="stylesheet" />
+	<link href="/css/inscription.css" rel="stylesheet" />
+	<link href="/css/authentification.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/webjars/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<link rel="stylesheet" href="./ressources/css/style.css">
-<link rel="stylesheet" href="./ressources/css/authentification.css">
-
-  <title>voitures</title>
+  <title>Modifier Voiture</title>
   
   <style type="text/css">
   	body {
@@ -30,7 +33,9 @@ crossorigin="anonymous">
 {
   background-color:#B5DAE5;
   max-width:500px;
-  padding:16px;	
+  padding:16px;
+        border-radius: 25px;
+	
 }
 	
 	.text-gray {
@@ -46,54 +51,60 @@ crossorigin="anonymous">
 
 	<div th:replace="fragments/navbar-admin"></div>
 
-	<div class="container col-md-5">
-		<div class="card">
+	<div class="container-inscription">
+		<div class="container">
+                
+                    <div class="wrap-inscription insc" style="margin-bottom: 100px;height:auto; width:700px;margin-left:auto;margin-right:auto;">
+                        <div class="container" style="margin-left:-50px">
+                            
+                                    
 			<div class="card-body">
 				
 					
 				<caption>
 					<h2>
-						
+																		<span class="inscription-form-title" style="margin-left: auto;margin-right:auto;margin-top: -20px;font-size:60px;text-align:center;">
+
             			Ajouter Voiture
             	
-						
+																		</span>
 					</h2>
 				</caption>
 
                <form action="#"  th:action="@{voitures/insertNewVoiture}" 
                      th:object="${voiture}"method="post">
 				<fieldset class="form-group" >
-					<label>matricule</label> <input type="text"
+					<label>Matricule</label> <input type="text"
 						 class="form-control" th:field="${voiture.matricule}"
 						name="matricule" id=matricule required="required">
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>nombre de personnes</label> <input type="text"
+					<label>Nombre de personnes</label> <input type="text"
 						th:field="${voiture.nombre_places}" class="form-control"
 						name="nombre_places">
 				</fieldset>
 				<fieldset class="form-group">
-					<label>prix</label> <input type="text"
+					<label>Prix</label> <input type="text"
 						th:field="${voiture.prix}" class="form-control"
 						name="prix">
 				</fieldset>
 				<fieldset class="form-group" >
-					<label>genre</label> <input type="text"
+					<label>Genre</label> <input type="text"
 						 class="form-control"
 						name="genre"th:field="${voiture.genre}">
 				</fieldset>
 				<fieldset class="form-group" >
-					<label>image</label> <input type="text"
+					<label>Image</label> <input type="text"
 						 class="form-control"
 						name="genre"th:field="${voiture.pic}">
 				</fieldset>
 				
 
-				<button type="submit" class="btn btn-info">Save</button>
+				<button type="submit" class="btn btn-info" style="margin-left:200px;font-weight:bold">Save</button>
 				</form>
 			</div>
 		</div>
-	</div>
+	</div></div></div>
 </body>
 </html>
