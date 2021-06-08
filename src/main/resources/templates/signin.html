@@ -35,29 +35,35 @@
 				<div class="container">
 					<!--Authentification par un compte existant-->
 					<div class="row">
+					
 						<div class="wrap-inscription insc" style="margin-bottom: 100px;height:440px;">
+							<div th:if="${param.success}" class="alert alert-error" style="font-weight: bold;color:green; text-align:center;margin-top:-40px;font-size:1.5em;margin-left:-60px;">    
+                    <i class="fa fa-check-circle" style="font-size:20px;padding-right:10px;" ></i>Félécitations! Votre compte a été créé avec succès
+                </div>
 							<div class="container">
 								<div class="row">
-									<form method="post" th:action="@{/process_signin}" th:object="${user}"
-										style="align-self: center;">
+									<form method="post" th:action="@{/connexion}" style="align-self: center;">
+										
 										<span class="inscription-form-title"
 											style="margin-left: -15px;margin-top: -20px;font-size:400%;text-align:center; font-family:fantasy">
 											Authentification
 										</span>
 										<!--Email-->
+										
 										<div class="wrap-input100 validate-input"
 											data-validate="Le format valide: exemple@abc.xyz">
-											<input class="input100" type="text" name="email" placeholder="Email">
+											<input class="input100" type="text" name="username" placeholder="Email" required>
 											<span class="symbol-input100">
 											</span>
+											
 											<!--<span style="color:red;">${form.erreurs['email']}</span>-->
 										</div>
 
 										<!--MOT de PASSE-->
 										<div class="wrap-input100 validate-input">
-											<input class="input100" id="mdp" type="text"
+											<input class="input100" id="mdp" type="text" required
 												onclick="if(this.type=='text')this.type='password'; if(this.value=='Mot de Passe')this.value='';"
-												name="motdepasse" placeholder="Mot de Passe">
+												name="password" placeholder="Mot de Passe">
 											<!-- <span class="symbol-input100">
                                            
                                         </span>
@@ -73,6 +79,9 @@
 												Connexion
 											</span>
 										</button>
+										<div th:if="${param.error}" class="alert alert-error" style="font-weight: bold;color:red; text-align:center;margin-bottom:-10px">    
+                    <i class="fas fa-exclamation-triangle" style="font-size:20px;padding-right:10px;" ></i>Invalid username and password.
+                </div>
 									</form>
 								</div>
 								<label for="check1"><br><a style="font-size:15px;margin-left:70px;">Si vous n'avez pas
