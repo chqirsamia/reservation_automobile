@@ -32,7 +32,11 @@ public class VoitureController {
 		model.addAttribute("list", VoitureService.getVoitures());
 		return "voiture";
 	}
-	
+	@GetMapping(path="/offres")
+	public  String  getVoituresClient(Model model) {
+		model.addAttribute("list", VoitureService.getVoitures());
+		return "voiture-client";
+	}
 	@PostMapping(path="insertNewVoiture")
 	public String insertNewVoiture(@Valid Voiture voiture, BindingResult result,Model model)
 	{VoitureService.addNewVoiture(voiture);
