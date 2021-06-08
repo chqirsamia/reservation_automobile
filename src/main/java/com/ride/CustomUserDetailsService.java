@@ -43,11 +43,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 		
 	}
 	@Transactional
-	public void updateAdmin(String email,String telephone,Long id) {
+	public void updateAdmin(String email,String telephone,Long id,String pass) {
 		Optional <User> userByID=repo.findById(id);
 		User user=userByID.get();
 		user.setEmail(email);
 		user.setTel(telephone);
+		user.setPassword(pass);
 		
 	}
 }

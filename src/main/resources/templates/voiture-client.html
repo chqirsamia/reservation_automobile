@@ -63,18 +63,17 @@ background-color: #ffffff;
 <div class="container text-left" style="margin-left: -48px;" >
 <br>
 
-				<a href="newVoiture" class="btn btn-info" style="margin-left:50px;">Ajouter une voiture</a>
 			</div>
 			<br>
 			<table class="table table-bordered" style="margin-left:-10px">
 				<thead>
 					<tr style="color:steelblue">
-						<th>Matricule</th>
+						
 						<th>Nombre de personnes</th>
 						<th>Prix</th>
 						<th>Genre</th>
 						<th>Image</th>
-						<th>Actions</th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -83,16 +82,13 @@ background-color: #ffffff;
 
 						<tr th:each="voiture:${list}">
 						
-							<td th:utext="${voiture.matricule}"></td>
+						
 							<td th:utext="${voiture.nombre_places}" ></td>
 							<td th:utext="${voiture.prix}" ></td>
 							<td th:utext="${voiture.genre}" ></td>
 							<td ><img th:src= "${voiture.pic}" style="width:304px;height:228px"></td>
 						
-							<td><a th:href="@{/voitures/edit/{id}(id=${voiture.id})}">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								th:href="@{voitures/delete/{id}(id=${voiture.id})}">Delete</a></td>
-								
+							
 						</tr>
 				
 		
