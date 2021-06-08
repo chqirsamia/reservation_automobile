@@ -117,8 +117,10 @@ public class AppController {
 	
 	@PostMapping (path="/admins/update/{id}")
 	public String updateUser (@PathVariable Long id,@RequestParam(required=false) String tel,
-			@RequestParam(required=false) String email) {
-		UserService.updateAdmin(email,tel,id);
+			@RequestParam(required=false) String email,@RequestParam(required=false) String password) {
+		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+		String encodedPassword=encoder.encode(password);
+		UserService.updateAdmin(email,tel,id,encodedPassword);
 		return "redirect:/user-list";}
 	
 	@GetMapping(path="/admins/delete/{id}")
