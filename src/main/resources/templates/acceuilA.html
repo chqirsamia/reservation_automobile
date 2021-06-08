@@ -27,162 +27,42 @@
 	<title>MyRide</title>
 </head>
 
-<body style="background-color:rgb(192,192,192);">
+<body style="background-color:rgb(192,192,192);height:92%">
 	<!-- Menu -->
 	<div th:replace="fragments/navbar-admin"></div>
 	<!-- Page d'acceuil -->
 	<section id="home"
-		style="background-image: url('/images/fond.png');background-size: cover;height:100%;opacity:90%;padding-top:50px">
+		style="background-image: url('/images/fond.png');background-size: cover;height:92%;opacity:90%;">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" class="item1 active" data-slide-to="0"></li>
-				<li data-target="#myCarousel" class="item2" data-slide-to="1"></li>
-				<li data-target="#myCarousel" class="item3" data-slide-to="2"></li>
-			</ol>
+			
 			<div class="carousel-inner">
 				<!-- SLIDE 1 -->
 
-				<div class="carousel-item carousel-image-1 active  ">
+				<div class="carousel-item carousel-image-1 active  " style="margin-top:100px;margin-bottom:-100px;">
 					<div class="container">
 						<div class="carousel-caption d-non d-sm-block text-center">
 							<h2 class="display-4 d-inline mylead"
-								style="background-color: rgb(119,136,153); font-family:  Lucida Console; font-size:110px;opacity:100%; ">
-								Bienvenue à MyRide </h2>
+								style="background-color: rgb(119,136,153); font-family:  Lucida Console; font-size:90px;opacity:100%; ">
+								Votre espace d'administration MyRide </h2>
 							<p></p>
 							<p class="lead textbg"
 								style="background-color:rgba(41, 128, 185,0.6);font-size:30px;font-weight:bold;font-family:garamond">
-								Une équipe de professionnels qui vous accompagne pour vivre autrement votre expérience
-								de transport <br> </p><br><br><br><br><br><br><br>
+								Personnalisez la plateforme à votre guise. Modifier votre liste d'admins, d'offres et parcourez toutes les demandes reçues <br> </p><br><br><br><br><br><br><br>
 						</div>
 					</div>
 				</div>
 
 
-				<!--Slide 2-->
-				<div class="carousel-item carousel-image-2 ">
-					<div class="container">
-						<div class="carousel-caption d-non d-sm-block text-center ">
-							<h2 class="display-4 d-inline mylead"
-								style="background-color: rgb(119,136,153); font-family:  Lucida Console; font-size:110px;">
-								 Votre expérience avec MyRide </h2>
-							<p></p>
-							<p class="lead textbg"
-								style="background-color:rgba(41, 128, 185,0.6);font-size:30px;font-weight:bold;font-family:garamond">
-								Transportez vous avec plus de sécurité et de confort <br> </p><br><br><br><br><br><br><br>
-						</div>
-					</div>
-				</div>
-
-				<!--Slide 3-->
-				<div class="carousel-item carousel-image-3 ">
-					<div class="container">
-						<div class="carousel-caption d-non d-sm-block text-left mb-5">
-							<div class="row">
-								<div class="col"></div>
-								<div class="col">
-									<h2 class="display-4 d-inline mylead">Une communauté de confiance</h2>
-									<br>
-									<p class="lead textbg"> MyRide compte des milliers de membres. Nous vérifions
-										les profils, un par un. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 			<!--Suivant & Precedant-->
-			<a href="#myCarousel" role="button" data-slide="prev" class="carousel-control-prev">
-				<span class="carousel-control-prev-icon"></span>
-			</a>
+			
 
-			<a href="#myCarousel" role="button" data-slide="next" class="carousel-control-next">
-				<span class="carousel-control-next-icon"></span>
-			</a>
+			
 		</div>
 	</section>
 	<!--Nos services  -->
-	<div class="row" id="apropos" style="margin-top: 100px;margin-bottom: 90px;">
-		<!-- Service Client -->
-		<div class="col-12 col-lg-3 srv1">
-			<div class="single-service-area mb-80">
-				<div class="service-icon">
-					<i class="far fa-check-circle" style="margin-top: 25px;"></i>
-				</div>
-				<h5 style="font-weight: bold;">Services de qualité</h5>
-				<p></p>
-			</div>
-			<center>
-				Personnel rigoureux et bien formé<br> Professionnalisme et sérieux
-				<br> <br> <br>
-			</center>
-		</div>
-
-		<div class="col-12 col-lg-3 srv2">
-			<div class="single-service-area mb-80">
-				<div class="service-icon">
-					<i class="fas fa-dollar-sign" style="margin-top: 25px;"></i>
-				</div>
-				<h5 style="font-weight: bold;">Meilleur rapport qualité prix</h5>
-				<p></p>
-			</div>
-			<center>
-				Offrant ponctualité ainsi que la flexibilité <br> adaptée à vos propres critères<br><br>
-			</center>
-		</div>
-		<div class="col-12 col-lg-3 srv3">
-			<div class="single-service-area mb-80">
-				<div class="service-icon">
-					<i class="fas fa-gavel" style="margin-top: 25px;"></i>
-				</div>
-				<h5 style="font-weight: bold;">Tous vos critères sont respectés</h5>
-				<p></p>
-			</div>
-			<center>
-				Choisissez le transport qui vous convient<br> le mieux.<span style="font-weight: bold;color: steelblue;"> On s'occupe du reste </span><br>
-				<br><br>
-			</center>
-		</div>
-		<div class="col-12 col-lg-3 srv4">
-			<div class="single-service-area mb-80">
-				<div class="service-icon">
-					<i class="fas fa-shield-alt" style="margin-top: 25px;"></i>
-				</div>
-				<h5 style="font-weight: bold;">Sécurité et disponibilité</h5>
-				<p></p>
-			</div>
-			<center>
-				Tous nos conducteurs ont l'expertise du domaine. <br> Vous traverserez votre trajet en toute sécurité
-				<br> <br>
-			</center>
-		</div>
-	</div>
-	<!-- Bas de page -->
-	<footer class="bg-light text-center text-lg-start" id="contact">
-		<div style="padding: 50px 0; background: #333; text-align: left; color: #aaa;width:100%;">
-			<div class="container p-4">
-				<div class="row">
-					<div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-						<h3 style="font-weight:bold">Contact</h3>
-						<br>
-						<p><i class="fas fa-map-marker-alt"></i> Rue Al Maouz, Hay Riad, Rabat</p>
-						<p><i class="fas fa-phone"></i> +212 5 36 37 38 39</p>
-						<p><i class="fas fa-envelope"></i><a href="mailto:my@domain.com" class="a"> contact@myride.com</a>
-						</p>
-					</div>
-
-					<div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-						<br>
-						<p style="font-weight:bold;color:while;">
-							Un service client disponible et réactif<br><br>Une équipe qui travaille pour vous offrir des
-							conseils fidèles<br><br><span style="color:steelblue;font-size:20px;">Notre but principal
-								est de vous satisfaire</span>
-						</p>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</footer>
+	
 	<!--Complément JS-->
 	<!--Mouvement lors de l'affichage-->
 	<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>

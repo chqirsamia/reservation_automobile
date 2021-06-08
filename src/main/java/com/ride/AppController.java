@@ -2,6 +2,8 @@ package com.ride;
 
 import javax.validation.Valid;
 
+//import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ride.demande.Demande;
-import com.ride.User;
+import com.ride.CustomUserDetailsService;
 import com.ride.UserRepository;
 import com.ride.voiture.Voiture;
 import com.ride.voiture.VoitureService;
@@ -22,18 +24,17 @@ import com.ride.voiture.VoitureService;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
-import net.bytebuddy.matcher.ModifierMatcher.Mode;
+//import net.bytebuddy.matcher.ModifierMatcher.Mode;
 @Controller
 public class AppController {
 	@Autowired
-
-    private UserRepository userRepo;
-	private final UserService  UserService ;
-	public AppController(UserService UserService) {
-		this.UserService=UserService;
-	}
-
     private UserRepository repo;
+	@Autowired
+	private CustomUserDetailsService  UserService ;
+//	public AppController(CustomUserDetailsService UserService) {
+//		this.UserService=UserService;
+//	}
+
 
 	@GetMapping("")
 	public String viewHomePage(){
@@ -89,7 +90,12 @@ public class AppController {
 		model.addAttribute("user",admin);
 		return "user-edit";
 	}
-
+//	@GetMapping (path="/edit/{id}")
+//	public String editVoiture(@PathVariable Long id,Model model) {
+//		Voiture voiture=VoitureService.getVoiture(id);
+//		model.addAttribute("voiture",voiture);
+//		return "voiture-form";
+//	}
 	@PostMapping("/process_signup")
 	public String processSignUp(User user) {
 		User existing = repo.findByEmail(user.getEmail());

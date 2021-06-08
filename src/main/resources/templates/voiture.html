@@ -18,13 +18,25 @@
 	<link rel="stylesheet" type="text/css" href="/webjars/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<title>voiture</title>
+	<title>Voiture</title>
 <style type="text/css">
   	body {
 	    background: #E0EEEE;/* linear-gradient(to right, #c04848, #480048); */
 	    min-height: 100vh
 	}
-	
+		table {
+border: medium solid #6495ed!important;
+border-collapse: collapse;
+width: 50%;
+}
+th {
+border: thin solid #6495ed!important;
+background-color: #D0E3FA;
+}
+td {
+border: thin solid #6495ed!important;
+background-color: #ffffff;
+}
 
 	
 	
@@ -38,24 +50,29 @@
 
 	<div th:replace="fragments/navbar-admin"></div>
 
-	<div class="row">
-		<!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
+	<section id="blog" class="py-3" style="background: url('/images/fond.png');background-size: cover;">
+   <div  style=" margin-top: -20px; margin-bottom: -20px;">
+		<div class="container-inscription" style="width:auto;margin-top:10px;" >
+            <div class="container" >
+                <div class="row" style="margin-top: -100px;">
+                    <div class="wrap-inscription insc" style="height:auto; width:1500px;margin-left:auto;margin-right:auto;">
+                        <div class="container" style="margin-left:-120px;margin-right:auto;" >
+                            <div class="row" >
+                                    <span class="inscription-form-title" style="margin-left: auto;margin-right:auto;margin-top: -20px;font-size:400%;text-align:center;">Nos Voitures</span>
+			     <div class="container text-left" >
+<div class="container text-left" style="margin-left: -48px;" >
+<br>
 
-		<div class="container">
-			<h3 class="text-center">Nos Voitures</h3>
-			<hr>
-			<div class="container text-left">
-
-				<a href="newVoiture" class="btn btn-info">ajouter une voiture</a>
+				<a href="newVoiture" class="btn btn-info" style="margin-left:50px;">Ajouter une voiture</a>
 			</div>
 			<br>
-			<table class="table table-bordered">
+			<table class="table table-bordered" style="margin-left:-10px">
 				<thead>
-					<tr>
-						<th>matricule</th>
-						<th>nombre de personnes</th>
-						<th>prix</th>
-						<th>genre</th>
+					<tr style="color:steelblue">
+						<th>Matricule</th>
+						<th>Nombre de personnes</th>
+						<th>Prix</th>
+						<th>Genre</th>
 						
 						<th>Actions</th>
 					</tr>
@@ -83,7 +100,7 @@
 
 			</table>
 		</div>
-	</div>
+	</div></div></div></div></div></div></div></section>
 </body>
 </html>
 
