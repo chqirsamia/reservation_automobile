@@ -3,10 +3,12 @@ package com.ride;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,18 +19,33 @@ import com.ride.UserRepository;
 import com.ride.voiture.Voiture;
 import com.ride.voiture.VoitureService;
 
+import org.springframework.web.bind.annotation.PostMapping;
+
+
 import net.bytebuddy.matcher.ModifierMatcher.Mode;
 @Controller
 public class AppController {
 	@Autowired
+
     private UserRepository userRepo;
 	private final UserService  UserService ;
 	public AppController(UserService UserService) {
 		this.UserService=UserService;
 	}
+
+    private UserRepository repo;
+
 	@GetMapping("")
 	public String viewHomePage(){
 		return "index";
+	}
+	@GetMapping("/acceuil_admin")
+	public String viewAdminHomePage(){
+		return "acceuilA";
+	}
+	@GetMapping("/acceuil_client")
+	public String viewClientHomePage(){
+		return "acceuilC";
 	}
 	@GetMapping("/connexion")
 	public String showSignInForm(Model model) {
@@ -40,6 +57,7 @@ public class AppController {
 		model.addAttribute("user",new User());
 		return "signup";
 	}
+
 	@GetMapping("/acceuilA")
 	public String showHome() {
 		return "acceuilA";
@@ -71,6 +89,24 @@ public class AppController {
 		model.addAttribute("user",admin);
 		return "user-edit";
 	}
+
+	@PostMapping("/process_signup")
+	public String processSignUp(User user) {
+		User existing = repo.findByEmail(user.getEmail());
+        if (existing != null){
+            return "redirect:/inscription?error";
+        }
+        else {
+		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+		String encodedPassword=encoder.encode(user.getPassword());
+		user.setPassword(encodedPassword);
+		repo.save(user);
+		return "redirect:/connexion?success";
+        }
+	}
+	
+	
+
 	
 	
 	@PostMapping (path="/admins/update/{id}")

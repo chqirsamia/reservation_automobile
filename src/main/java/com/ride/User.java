@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
+
 @Entity
 @Table(name="users")
 public class User {
@@ -17,7 +19,7 @@ public class User {
 	private String nom;
 	@Column(nullable=false,length=50)
 	private String prenom;
-	@Column(nullable=false,unique=true,length=100)
+	@Column(nullable=false,length=100)
 	private String email;
 	@Column(nullable=false,length=10)
 	private String sexe;
@@ -25,7 +27,8 @@ public class User {
 	private String tel;
 	@Column(nullable=false,length=100)
 	private String password;
-	@Column(nullable=false,length=2)
+	@ColumnDefault("'C'")
+	@Column(nullable=true,length=2)
 	private String role;
 	public Long getId() {
 		return id;
