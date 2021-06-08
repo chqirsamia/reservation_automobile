@@ -100,10 +100,10 @@
 	                    		<div class="row  border border-info rounded" style="margin-right:0.5px;">
 	                    		
 	                    			
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> numero demande : <a th:text="${demande.id}" ></a></h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> date de creation : <a th:text="${demande.date_creation}" ></a></h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> prix :<a th:text="${demande.prix}" ></a>Dhs</h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> etat de commande: <a th:text="${demande.etat}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i><a style="font-weight:bold;color:cornflowerblue"> Numéro demande : </a> <a th:text="${demande.id}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i><a style="font-weight:bold;color:cornflowerblue"> Date de création : </a><a th:text="${demande.date_creation}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i><a style="font-weight:bold;color:cornflowerblue"> Prix : </a><a th:text="${demande.prix}" ></a>Dhs</h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i><a style="font-weight:bold;color:cornflowerblue"> Etat de commande : </a><a th:text="${demande.etat}" ></a></h6>
 	                    					
 	                    				
 	                    				
@@ -117,10 +117,10 @@
 	                    		<div class="row  border border-info rounded">
 	                    		
 	                    			
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> nom : <a th:text="${demande.nom}" ></a></h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> prenom : <a th:text="${demande.prenom}" ></a></h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> email :<a th:text="${demande.email}" ></a></h6>
-	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i> numero de telephone: <a th:text="${demande.tel}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i><a style="font-weight:bold;color:cornflowerblue"> Nom : </a><a th:text="${demande.nom}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i><a style="font-weight:bold;color:cornflowerblue"> Prénom : </a><a th:text="${demande.prenom}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i><a style="font-weight:bold;color:cornflowerblue"> Email : </a><a th:text="${demande.email}" ></a></h6>
+	                    					<h6><i class="fa fa-long-arrow-right mr-1 mb-1"></i><a style="font-weight:bold;color:cornflowerblue"> Numéro de téléphone : </a><a th:text="${demande.tel}" ></a></h6>
 	                    					
 	                    				
 	                    				
@@ -130,7 +130,7 @@
 	                    	<div class="col-sm-3">
 	                    	<div th:if ="${demande.etat== 'NF'}">
 	                    	
-							<td><a th:href="@{demandes/EditDemande/{id}(id=${demande.id})}">marquer comme traitee</a></td>
+							<td><a th:href="@{demandes/EditDemande/{id}(id=${demande.id})}" style="margin-left:70px;">Marquer comme traitée</a></td>
 								</div>
 	                    	</div>
 	                    </div>
