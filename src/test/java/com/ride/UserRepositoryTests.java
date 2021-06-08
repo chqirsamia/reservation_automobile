@@ -20,7 +20,7 @@ public class UserRepositoryTests {
 		User user=new User();
 		user.setNom("Saidi");
 		user.setPrenom("Said");
-		user.setEmail("said@saidi.com");
+		user.setEmail("said@saidii.com");
 		user.setSexe("H");
 		user.setTel("0675467328");
 		user.setPassword("said");
@@ -33,12 +33,14 @@ public class UserRepositoryTests {
 		assertThat(existUser.getEmail()).isEqualTo(user.getEmail());
 	}
 	
+
 	@Test
 	public void testFindUserByEmail() {
 		String email="ayaouzzine1@gmail.com";
 		User user=repo.findByEmail(email);
 		assertThat(user).isNotNull();
 	}
+
 
 }
 
