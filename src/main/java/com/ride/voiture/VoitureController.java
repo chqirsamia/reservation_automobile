@@ -32,7 +32,7 @@ public class VoitureController {
 		model.addAttribute("list", VoitureService.getVoitures());
 		return "voiture";
 	}
-	@GetMapping(path="offres")
+	@GetMapping(path="/offres")
 	public  String  getOffres(Model model) {
 		model.addAttribute("list", VoitureService.getVoitures());
 		return "voiture-client";

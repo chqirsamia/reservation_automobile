@@ -60,9 +60,7 @@ public class Demande {
 			this.etat = etat;
 		}
 		
-		public void setDate_creation(Date date_creation ) {
-			this.date_creation=date_creation;
-		}
+		
 		public Date getDate_creation() {
 			return date_creation;
 		}
