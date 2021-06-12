@@ -21,5 +21,5 @@ Ce qu'il est requis pour commencer le projet
 ## Realisé par
 
 * **CHQIR Samia**  [@chqirsamia](https://github.com/chqirsamia)
-* **MAFTAH ELKASSIMY Hajar**  [@gitready887](https://github.com/gitready887)
+* **MAFTAH ELKASSIMY Hajar**  [@elkassimyhajar](https://github.com/elkassimyhajar)
 * **OUZZINE Aya**  [@ayaouzzine](https://github.com/ayaouzzine)

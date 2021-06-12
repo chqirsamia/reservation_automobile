@@ -1,34 +1,34 @@
 package com.ride;
 
+
 import javax.validation.Valid;
 
 //import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ride.demande.Demande;
-import com.ride.CustomUserDetailsService;
-import com.ride.UserRepository;
+import com.ride.demandeclient.DemandeClientService;
 import com.ride.voiture.Voiture;
-import com.ride.voiture.VoitureService;
-import com.ride.*;
-import org.springframework.web.bind.annotation.PostMapping;
 
 
 //import net.bytebuddy.matcher.ModifierMatcher.Mode;
 @Controller
 public class AppController {
+
 	@Autowired
     private UserRepository repo;
+	@Autowired
+	private DemandeClientService ds;
 	@Autowired
 	private CustomUserDetailsService  UserService ;
 //	public AppController(CustomUserDetailsService UserService) {
@@ -45,8 +45,14 @@ public class AppController {
 		return "acceuilA";
 	}
 	@GetMapping("/acceuil_client")
-	public String viewClientHomePage(){
-		return "acceuilC";
+	public String viewClientHomePage(Model model){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		CustomUserDetails cuser = (CustomUserDetails) authentication.getPrincipal();
+		model.addAttribute("user", repo.findByEmail(cuser.getUsername()));
+		model.addAttribute("total", ds.getDemandes(cuser.getId()).size());
+
+		return "mesinfos";
 	}
 	@GetMapping("/connexion")
 	public String showSignInForm(Model model) {

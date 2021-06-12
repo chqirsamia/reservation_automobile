@@ -1,6 +1,5 @@
 package com.ride.voiture;
 
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -24,6 +23,9 @@ public class Voiture {
 	private Long id;
 	@Column(nullable=false,length=50)
 	private String matricule;
+	@Column(nullable=false,length=30)
+	private String marque;
+	
 	@Column(nullable=false)
 	private int nombre_places;
 	@Column(nullable=false)
@@ -80,5 +82,10 @@ public class Voiture {
 	public void setPic(String pic) {
 		this.pic = pic;
 	}
-	
+	public String getMarque() {
+		return marque;
+	}
+	public void setMarque(String marque) {
+		this.marque = marque;
+	}
 }

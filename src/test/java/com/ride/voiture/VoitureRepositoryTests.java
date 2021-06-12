@@ -28,7 +28,8 @@ public class VoitureRepositoryTests {
 			Voiture voiture=new Voiture();
 			voiture.setMatricule("P5642");
 			voiture.setNombre_places(4);
-			voiture.setGenre("mercedes");
+			voiture.setGenre("Limousine");
+			voiture.setMarque("Mercedes");
 			voiture.setPic("https://media.istockphoto.com/photos/red-bus-picture-id171297525?s=612x612");
 			voiture.setPrix(1500);
 			Voiture savedVoiture = repo.save(voiture);

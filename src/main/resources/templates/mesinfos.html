@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Mes informations</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/img/favicon.png" rel="icon">
+  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/vendor/owl.carousel//owl.carousel.min.css" rel="stylesheet">
+  <link href="/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/css/client-style.css" rel="stylesheet">
+
+</head>
+
+<body>
+	
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div th:replace="fragments/sidebar-client"></div>
+
+  <main id="main">
+  	    <!-- ======= Resume Section ======= -->
+  <form method="post" name="upUser" th:action="@{/add_user}" th:object="${user}" onsubmit="validateForm()">  	
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Mes informations</h2>
+          <p>Vous trouvez ici les informations que vous partagez avec nous pour plus d'accessibilité.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">Informations personnelles</h3>
+            <div class="resume-item pb-0">
+            	<div class="row">
+            		<div class="col-md-6"><h5>Nom : </h5></div>
+            		<div class="col-md-6"> <input class="form-control" type="text" th:field="${user.nom}"/></div>
+            	</div>
+               <div class="row">
+            		<div class="col-md-6"><h5>Prénom : </h5></div>
+            		<div class="col-md-6"> <input class="form-control" type="text" th:field="${user.prenom}"/></div>
+            	</div>
+            	<div class="row">
+            		<div class="col-md-6"><h5>Adresse email : </h5></div>
+            		<div class="col-md-6"> <input class="form-control" type="text" th:field="${user.email}"/></div>
+            	</div>
+            	<div class="row">
+            		<div class="col-md-6"><h5>Numéro de téléphone : </h5></div>
+            		<div class="col-md-6"> <input class="form-control" type="text" th:field="${user.tel}"/></div>
+            	</div>
+            	<div class="row">
+            		<div class="col-md-6"><h5>Sexe : </h5></div>
+					<div class="col-md-6">
+						<select class="custom-select" th:field="${user.sexe}">
+						  <option selected value="M">Masculin</option>
+						  <option value="F">Féminin</option>
+						</select> 
+					</div>           	
+				</div>
+            </div>
+            
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Demandes</h3>
+            <div class="resume-item pb-0">
+            	<div class="row">
+            		<div class="col-md-7"><h5>Nombre total de demandes : </h5></div>
+            		<div class="col-md-5"><span th:text="${total}"></span> demande(s)</div>
+            	</div>
+               
+            
+            </div>
+          </div>
+        </div>
+
+		<div class="row">
+				<button class="btn btn-dark profile-button ml-0 mt-5" type="submit"> Enregistrer les changements</button>
+		</div>
+      </div>
+    </section><!-- End Resume Section -->
+  </form>
+  </main>
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/vendor/php-email-form/validate.js"></script>
+  <script src="/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/vendor/counterup/counterup.min.js"></script>
+  <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/vendor/venobox/venobox.min.js"></script>
+  <script src="/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/vendor/typed.js/typed.min.js"></script>
+  <script src="/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/main.js"></script>
+  <script type="text/javascript">
+  	$(window).on('load', function() {
+		if("${etat == 'V'}") $('#updateModal').modal('show');
+		});
+  </script>
+</body>

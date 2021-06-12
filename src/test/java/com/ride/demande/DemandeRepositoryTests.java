@@ -13,6 +13,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
 
 import com.ride.UserRepositoryTests;
+import com.ride.demandeadmin.Demande;
+import com.ride.demandeadmin.DemandeRepository;
 import com.ride.voiture.Voiture;
 import com.ride.voiture.VoitureRepository;
 @DataJpaTest
